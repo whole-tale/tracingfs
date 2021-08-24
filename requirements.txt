@@ -1,0 +1,4 @@
+click
+fusepy
+python-logstash-async
+psutil
