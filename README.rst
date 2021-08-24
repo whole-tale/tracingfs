@@ -6,32 +6,33 @@ tracingfs
 Description
 ===========
 
-A naive passthrough fuse filesystem (based on an original `example <https://www.stavros.io/posts/python-fuse-filesystem/>` with additional capability of logging operations remotely to logstash
+A naive passthrough fuse filesystem (based on an original `example <https://www.stavros.io/posts/python-fuse-filesystem/>`_) with additional capability of logging operations remotely to logstash
 
 Installation
 ============
 
-```
-pip install -r requirements.txt
-```
+.. code-block:: shell
+
+    pip install -r requirements.txt
 
 Usage
 =====
 
-```
-python passthrough.py $HOME /tmp/home
-./run_stash.sh  # starts logstash container, may take a while
-```
+.. code-block:: shell
+
+    python passthrough.py $HOME /tmp/home
+    ./run_stash.sh  # starts logstash container, may take a while
 
 Perform some file operations in `/tmp/home` in a separate terminal.
 
 Cleanup
 =======
 
-```
-fusermount -u /tmp/home && rmdir /tmp/home
-docker stop -t 0 logstash  # or CTRL-C in shell runningn logstash container
-```
+.. code-block:: shell
+  
+    fusermount -u /tmp/home && rmdir /tmp/home
+    docker stop -t 0 logstash  # or CTRL-C in shell runningn logstash container
+
 
 Acknowledgements
 ================
